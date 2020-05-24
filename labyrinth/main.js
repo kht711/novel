@@ -1,4 +1,5 @@
-var text = "";
+var text = [];
+var key = [];
 
 function readTextFile(file){
     var rawFile = new XMLHttpRequest();
@@ -16,7 +17,12 @@ function readTextFile(file){
 readTextFile("./encrypt.txt");
 
 function EncryptText(allText){
-    text = allText.split("\n");
+    let row = allText.split("\n");
+    for (i = 0; i < row.length; i++){
+        let r = row[i].split(", ");
+        key.push(r[0]);
+        text.push(r[1]);
+    }
 }
 
 function submit(){
@@ -25,9 +31,9 @@ function submit(){
 }
 
 function div(value){
-    let stage = document.getElementById("stage").value;
+    let stage = Number(document.getElementById("stage").value);
     let body = document.getElementById("body");
-    if (stage == "0" && value == "start"){
-        body.innerHTML = decodeURI(text[0]);
+    if (btoa(value) == key[stage]){
+        body.innerHTML = decodeURI(text[stage]);
     }
 }
