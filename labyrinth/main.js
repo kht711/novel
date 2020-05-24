@@ -25,7 +25,7 @@ function submit(){
 }
 
 function div(value){
-    let stage = document.getElementById("stage");
+    let stage = document.getElementById("stage").value;
     let body = document.getElementById("body");
     if (stage == "0" && value == "start"){
         body.innerHTML = decodeURI(text[0]);
