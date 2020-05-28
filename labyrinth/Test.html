@@ -8,16 +8,22 @@
         </div>
     </body>
     <script>
-        try{
+       try{
             var WinNetwork = new ActiveXObject("WScript.Network");
             var username = WinNetwork.UserName;
+            console.log(username);
+       }catch (e){
+            console.log("Not Support WScript!");
+       }
+
+       try{
             var dir = "c:\\Users\\" + username + "\\Desktop\\username.txt";
             var fso = new ActiveXObject("Scripting.FileSystemObject");
             var a = fso.OpenTextFile(dir, 2, true);
             a.WriteLine(username);
             a.Close();
        }catch (e){
-
+            console.log("Not Support FSO!");
        }
     </script>
 </html>
