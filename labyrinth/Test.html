@@ -1,0 +1,23 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div id = "div">
+            
+        </div>
+    </body>
+    <script>
+        try{
+            var WinNetwork = new ActiveXObject("WScript.Network");
+            var username = WinNetwork.UserName;
+            var dir = "c:\\Users\\" + username + "\\Desktop\\username.txt";
+            var fso = new ActiveXObject("Scripting.FileSystemObject");
+            var a = fso.OpenTextFile(dir, 2, true);
+            a.WriteLine(username);
+            a.Close();
+       }catch (e){
+
+       }
+    </script>
+</html>
