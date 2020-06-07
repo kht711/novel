@@ -37,7 +37,7 @@ function div(value){
     let body = document.getElementById("body");
     if (btoa(value) == key[stage]){
         if (stage == 3){
-            document.title = key[stage];
+            document.title = atob(key[stage+1]);
         }else{
             document.title = "Labyrinth";
         }
