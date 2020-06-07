@@ -36,6 +36,11 @@ function div(value){
     let stage = Number(document.getElementById("stage").value);
     let body = document.getElementById("body");
     if (btoa(value) == key[stage]){
+        if (stage == 4){
+            document.title = key[stage];
+        }else{
+            document.title = "Labyrinth";
+        }
         body.className = bStyle[stage];
         body.innerHTML = decodeURI(text[stage]);
     }
