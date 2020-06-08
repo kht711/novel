@@ -45,6 +45,14 @@ function div(value){
         body.innerHTML = decodeURI(text[stage]);
     }else if (stage == 0 && btoa(value) == key[key.length-1]){
         body.className = bStyle[bStyle.length-1];
-        body.innerHTML = decodeURI(text.length-1);
+        if (isWin()){
+            body.innerHTML = decodeURI(text.length-1);
+        }else{
+            body.innerHTML = "ごめんね。ここからは<br>Windows OSの人しか<br>見れないページなんだ。";
+        }
     }
+}
+
+function isWin(){
+    return navigator.platform.indexOf('Win') > -1;
 }
