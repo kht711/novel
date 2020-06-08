@@ -43,7 +43,7 @@ function div(value){
         }
         body.className = bStyle[stage];
         body.innerHTML = decodeURI(text[stage]);
-    }else if (stage == 0 && value == key[key.length-1]){
+    }else if (stage == 0 && btoa(value) == key[key.length-1]){
         body.className = bStyle[bStyle.length-1];
         body.innerHTML = decodeURI(text.length-1);
     }
