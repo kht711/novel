@@ -35,8 +35,11 @@ function submit(){
 function div(value){
     let stage = Number(document.getElementById("stage").value);
     let body = document.getElementById("body");
-    if (stage == -1 && btoa(value) == key[key.length-1]){
-        body.innreHTML = decodeURI(text[text.length-1]);
+    if (stage == -1){
+        if (btoa(value) == key[key.length-1]){
+            body.className = bStyle[bStyle.length-1];
+            body.innreHTML = decodeURI(text[text.length-1]);
+        }
     }else if (btoa(value) == key[stage]){
         if (stage == 3){
             document.title = atob(key[stage+1]);
@@ -46,7 +49,7 @@ function div(value){
         body.className = bStyle[stage];
         body.innerHTML = decodeURI(text[stage]);
     }else if (stage == 0 && btoa(value) == key[key.length-2]){
-        body.className = bStyle[bStyle.length-1];
+        body.className = bStyle[bStyle.length-2];
         if (isWin()){
             body.innerHTML = decodeURI(text[text.length-2]);
         }else{
