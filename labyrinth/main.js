@@ -38,7 +38,7 @@ function div(value){
     if (stage == -1){
         if (btoa(value) == key[key.length-1]){
             body.className = bStyle[bStyle.length-1];
-            body.innreHTML = decodeURI(text[text.length-1]);
+            body.innerHTML = decodeURI(text[text.length-1]);
         }
     }else if (btoa(value) == key[stage]){
         if (stage == 3){
