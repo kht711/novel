@@ -53,7 +53,10 @@ function div(value){
         if (isWin()){
             body.innerHTML = decodeURI(text[text.length-2]);
         }else{
-            body.innerHTML = "ごめんね。ここからは<br>Windows OSの人しか<br>見れないページなんだ。<br><br>君は、" + platform.description + "の" + platform.product + "を使ってるな。";
+            body.innerHTML = "ごめんね。ここからは<br>Windows OSの人しか<br>見れないページなんだ。<br><br>君は、" + platform.os + "使ってるな。";
+            if (platform.product != null){
+                body.innerHTML += "(" + platform.product + ")<br><br>え？この番号はなんだって？<br><br>今、君が使っているスマホのモデルだよ。";
+            }
         }
     }
 }
