@@ -55,7 +55,7 @@ function div(value){
         }else{
             body.innerHTML = "ごめんね。ここからは<br>Windows OSの人しか<br>見れないページなんだ。<br><br>君は、" + platform.os + "使ってるな。";
             if (platform.product != null){
-                body.innerHTML += "(" + platform.product + ")<br><br>え？この番号はなんだって？<br><br>今、君が使っているスマホのモデルだよ。";
+                body.innerHTML += "(" + platform.product + ")<br><br>え？この番号はなんだって？<br><br>今、君が使っているスマホのモデルだよ。<br><br><br><br>いつも、見てるよ";
             }
         }
     }
