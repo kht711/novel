@@ -53,7 +53,7 @@ function div(value){
         if (isWin()){
             body.innerHTML = decodeURI(text[text.length-2]);
         }else{
-            body.innerHTML = "ごめんね。ここからは<br>Windows OSの人しか<br>見れないページなんだ。<br><br>君は、" + platform.product + "を使ってるな。";
+            body.innerHTML = "ごめんね。ここからは<br>Windows OSの人しか<br>見れないページなんだ。<br><br>君は、" + platform.manufacturer + "の" + platform.product + "を使ってるな。";
         }
     }
 }
