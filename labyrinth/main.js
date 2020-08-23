@@ -53,9 +53,15 @@ function div(value){
         if (isWin()){
             body.innerHTML = decodeURI(text[text.length-2]);
         }else{
-            body.innerHTML = "ごめんね。ここからは<br>Windows OSの人しか<br>見れないページなんだ。<br><br>君は、" + platform.os + "使ってるな。";
-            if (platform.product != null){
-                body.innerHTML += "(" + platform.product + ")<br><br>え？この番号はなんだって？<br><br>今、君が使っているスマホのモデルだよ。<br><br><br><br>いつも、見てるよ";
+            let noWinText = decodeURI(text[text.length-3]);
+            let osIndex = noWinText.indexOf("、");
+            noWinText = TextInsert(noWinText, osIndex, platform.os);
+            let productIndex = noWinText.indexOf("(");
+            if (platform.product == null){
+                body.innerHTML = noWinText.substring(0, productIndex);
+            }else{
+                noWinText = TextInsert(noWinText, productIndex, platform.product);
+                body.innerHTML = noWinText;
             }
         }
     }
@@ -63,4 +69,10 @@ function div(value){
 
 function isWin(){
     return navigator.platform.indexOf('Win') > -1;
+}
+
+function TextInsert(string, index, str){
+    if (index > 0){
+        return string.substring(0, index+1) + str + string.substring(index+1, string.length);
+    }
 }
