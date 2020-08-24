@@ -1,6 +1,7 @@
 var text = [];
 var key = [];
 var bStyle = [];
+var visitText = [];
 
 function readTextFile(file){
     var rawFile = new XMLHttpRequest();
@@ -9,13 +10,18 @@ function readTextFile(file){
         if (rawFile.readyState === 4){
             if (rawFile.status === 200 || rawFile.status == 0){
                 var allText = rawFile.responseText;
-                EncryptText(allText);
+                if (file == "./encrypt.txt"){
+                    EncryptText(allText);
+                }else{
+                    VisitText(allText);
+                }
             }
         }
     };
     rawFile.send(null);
 }
 readTextFile("./encrypt.txt");
+readTextFile("./visit.txt");
 
 function EncryptText(allText){
     let row = allText.split("\n");
@@ -24,6 +30,13 @@ function EncryptText(allText){
         bStyle.push(r[0])
         key.push(r[1]);
         text.push(r[2]);
+    }
+}
+
+function VisitText(allText){
+    let row = allText.split("\n");
+    for (i = 0; i < row.length; i++){
+        visitText.push(row[i]);
     }
 }
 
@@ -62,6 +75,15 @@ function div(value){
             }else{
                 noWinText = TextInsert(noWinText, productIndex, platform.product);
                 body.innerHTML = noWinText;
+            }
+
+            if (document.cookie == ""){
+                document.cookie = "visit=1";
+            }else{
+                let c = document.cookie;
+                let visit = Number(c.split("=")[1]) + 1;
+                document.cookie = "visit=" + visit;
+                body.innerHTML += visitText[visit-2];
             }
         }
     }
