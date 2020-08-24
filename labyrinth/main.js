@@ -83,6 +83,9 @@ function div(value){
                 let c = document.cookie;
                 let visit = Number(c.split("=")[1]) + 1;
                 document.cookie = "visit=" + visit;
+                if (visit > 12){
+                    visit = 12;
+                }
                 body.innerHTML += visitText[visit-2];
             }
         }
