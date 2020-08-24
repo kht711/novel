@@ -86,7 +86,7 @@ function div(value){
                 if (visit > 12){
                     visit = 12;
                 }
-                body.innerHTML += visitText[visit-2];
+                body.innerHTML += "<br><br>" + visitText[visit-2];
             }
         }
     }
