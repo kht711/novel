@@ -68,9 +68,9 @@ function div(value){
                 document.cookie = "visit=1";
             }else{
                 let c = document.cookie;
-                let visit = c.split("=")[1] + 1;
+                let visit = Number(c.split("=")[1]) + 1;
                 document.cookie = "visit=" + visit;
-                body.innerHTML += "<br><br>また会ったね" + visit + "回目だよ";
+                body.innerHTML += "<br><br><br><br>また会ったね" + visit + "回目だよ";
             }
         }
     }
